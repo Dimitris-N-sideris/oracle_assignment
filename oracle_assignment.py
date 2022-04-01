@@ -15,24 +15,31 @@ def retrieve_ftp_data(host, directory, file):
     ftp.login()  # user anonymous, passwd anonymous@
     # change  directory
     ftp.cwd(directory)
-    # data = ftp.retrlines('LIST')           # list directory contents
-    # print(data)
+    data = ftp.retrlines('LIST')           # list directory contents
+    print(data)
     with open(file, "wb") as zipped_data:
         ftp.retrbinary("RETR " + file, zipped_data.write)
 
     ftp.quit()
 
-
+#https://httpd.apache.org/docs/2.4/logs.html
+log_header = ['host', 'identity', 'userid', 'date', 'request', 'status', 'size']
 # retrieve_ftp_data(host, directory, file)
 df = pd.read_csv(
     file,
     header=None,
+    names = log_header,
     sep=" ",
     quotechar='"',
     on_bad_lines="warn",
     encoding="unicode_escape",
 )
-print(df.head)
+print(df.head())
+request_group = df.groupby('request').request.count().reset_index(name = '# requests')
+
+print(request_group.sort_values('# requests').head())
+print(request_group.sort_values('# requests', ascending = False).head(10))
+
 """with gzip.open(file, 'rt') as unzip_data:
     log_file = unzip_data.readlines()
     
