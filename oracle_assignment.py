@@ -34,11 +34,24 @@ df = pd.read_csv(
     on_bad_lines="warn",
     encoding="unicode_escape",
 )
-print(df.head())
-request_group = df.groupby('request').request.count().reset_index(name = '# requests')
 
-print(request_group.sort_values('# requests').head())
+# 1) top #10 requests 
+print(df.dtypes)
+request_group = df.groupby('request').request.count().reset_index(name = '# requests')
 print(request_group.sort_values('# requests', ascending = False).head(10))
+
+# 2) successful requests
+successful_requests = df[(df['status'] >= 200) & (df['status'] < 400)]
+successful_requests_percent = (successful_requests.shape[0] / df.shape[0])*100
+print(successful_requests.head())
+print(successful_requests_percent)
+# 3) failed requests
+failed_requests = df[(df['status'] < 200) & (df['status'] >= 400)]
+print(failed_requests.head())
+failed_requests_percent = (failed_requests.shape[0] / df.shape[0])*100
+print(failed_requests_percent)
+
+#print(request_group.sort_values('# requests').head())
 
 """with gzip.open(file, 'rt') as unzip_data:
     log_file = unzip_data.readlines()
