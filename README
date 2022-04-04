@@ -10,7 +10,7 @@ $ python main.py > output_log_file.txt
 2. Option pasing -m / --mode 
 $ python main.py [-m, --mode] MODE  > output_log_file.txt
 3. run unitests 
-python test_main.py 
+$ python test_main.py 
 ### Where MODE is one of [top10, successPercent, failedPercent, top10failed, top10hosts]
     top10:  Top 10 requested pages and the number of requests made for each
     successPercent: Percentage of successful requests (anything in the 200s and 300s range)
