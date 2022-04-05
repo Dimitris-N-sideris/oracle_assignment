@@ -1,7 +1,7 @@
 # Oracle GBU Cloud Services Offline Test
 
 ## Requirements
-python,pip
+python3 ,pip
 download libraries (numpy,pandas)
 at the root of the project run
 
