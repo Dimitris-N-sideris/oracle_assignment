@@ -35,15 +35,9 @@ $ python test_main.py
 task 7 always runs and is not part of MODE option
 - file should be locally named 'NASA_access_log_Aug95.gz', you can download through ftp with a commented line in oracle_assignment.py if needed
 - log file created through piping output to file through linux pipes eg 'python main.py > log_filename.txt'
-
-The pandas read_csv() ignores the bad entries and displays error
-8. The log file contains malformed entries; for each malformed line, display an error
-message and the line number.
-
-
-
-https://httpd.apache.org/docs/2.4/logs.html
-
+- The pandas read_csv() ignores the bad entries and displays error for task 8# if they have 8 field it is considered a valid entry
+- log file entries were treated based on the principles and order found here https://httpd.apache.org/docs/2.4/logs.html
+eg log_header = ['host', 'identity', 'userid', 'date', 'timezone', 'request', 'status', 'size']
 
 # Soft skills challenge
 Pick any 2 competing technologies on a subject you are quite familiar with. Write an informal
