@@ -1,9 +1,20 @@
 # Oracle GBU Cloud Services Offline Test
 
+## Requirements
+python,pip
+download libraries (numpy,pandas)
+at the root of the project run
+
+$pip install -r requirements.txt
+OR
+$pip install numpy pandas
+
 ### non standard libraries used: numpy, pandas
 ### root/source/ contains source code
 ### root/testing_files contains testing files
-### Download 'NASA_access_log_Aug95.gz by running: $ python ftp_download.py
+###  if the entry file in the repo is out of date, Download 'NASA_access_log_Aug95.gz with ftp by running: 
+$ python ftp_download.py
+
 # HOW TO RUN 
 1.  Runs all tasks
 $ python main.py > output_log_file.txt
@@ -23,7 +34,7 @@ $ python test_main.py
 - for task #6 if [-m, --mode] MODE is given but MODE is not one of the valid options it defaults to run all tasks
 task 7 always runs and is not part of MODE option
 - file should be locally named 'NASA_access_log_Aug95.gz', you can download through ftp with a commented line in oracle_assignment.py if needed
-- log file created through piping output to file through linux pipes '> file.txt'
+- log file created through piping output to file through linux pipes eg 'python main.py > log_filename.txt'
 
 The pandas read_csv() ignores the bad entries and displays error
 8. The log file contains malformed entries; for each malformed line, display an error
@@ -39,6 +50,7 @@ Pick any 2 competing technologies on a subject you are quite familiar with. Writ
 mail to your Manager in English, explaining why one is better than the other. The email
 should not exceed 300 words.
 
+email is as pdf in the repo named as 'email_to_manager.pdf'
 
 
 
